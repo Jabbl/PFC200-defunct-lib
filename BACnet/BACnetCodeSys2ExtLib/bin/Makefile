@@ -98,9 +98,9 @@ CODESYS_V2_SRC = \
 	
 
 CODESYS_V2_SRC_CXX = \
-	$(BACNET_CODESYS_V2)/runner.cpp \
-	$(BACNET_CODESYS_V2)/appDataValue2.cpp \
 	$(BACNET_CODESYS_V2)/OctetString.cpp \
+	$(BACNET_CODESYS_V2)/appDataValue2.cpp \
+	$(BACNET_CODESYS_V2)/runner.cpp \
 
 
 CODESYS_V2_TESTLINK_SRC = $(BACNET_CODESYS_V2)/verify_external_dependencies.c
@@ -150,7 +150,7 @@ $(TARGET_LIB_TESTLINK): $(TARGET_LIB) $(CODESYS_V2_TESTLINK_SRC)
 	$(SILENCE)echo Compiling $(basename $<).c
 	$(SILENCE)$(COMPILE.c) $< -o $@
 	
-.cpp.o:
+%.o: %.cpp
 	@echo Compiling $(basename $<).cpp
 	$(SILENCE)$(CXX) -c $(CXXFLAGS) $*.cpp -o $@
 
