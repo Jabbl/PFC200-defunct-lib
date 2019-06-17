@@ -19,11 +19,13 @@ enum ETEST
 {
 	BANANA = 1,
 	CHILI = 2,
-	APPLE = 3 
+	APPLE = 3
 };
 
 
 /* The Prototypes */
+BOOL F_PROCESS(void);
+;
 BOOL F_TESTFUNCTION(BOOL XINPUTparam);
 ;
 void FB_TESTFUNCTIONBLOCK(FB_TESTFUNCTIONBLOCKtyp* inst);

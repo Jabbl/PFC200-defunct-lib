@@ -138,14 +138,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\codesys.h" />
+    <ClInclude Include="include\cpp\apduSettings.h" />
+    <ClInclude Include="include\cpp\appDataValue2.h" />
+    <ClInclude Include="include\cpp\OctetString.h" />
     <ClInclude Include="include\ports\win32\wide\wide_api.h" />
     <ClInclude Include="include\ports\win32\wide\wide_codesys_types.h" />
     <ClInclude Include="include\ports\win32\wide\wide_events.h" />
     <ClInclude Include="include\ports\win32\wide\wide_hooks.h" />
     <ClInclude Include="include\ports\win32\wide\wide_rts_exceptions.h" />
     <ClInclude Include="include\ports\win32\wide\wide_types.h" />
-    <ClInclude Include="include\native\native_io_modules.h" />
-    <ClInclude Include="include\native\native_objects.h" />
     <ClInclude Include="include\ports\win32\dal\adi_application_interface.h" />
     <ClInclude Include="include\ports\win32\dal\dal_limits.h" />
     <ClInclude Include="include\ports\win32\dal\dal_types.h" />
@@ -153,12 +154,16 @@
     <ClInclude Include="include\ports\win32\ldkc_kbus_information.h" />
     <ClInclude Include="include\ports\win32\ldkc_kbus_register_communication.h" />
     <ClInclude Include="include\ports\win32\oscommon.h" />
+    <ClInclude Include="include\runner.h" />
+    <ClInclude Include="include\starter.h" />
     <ClInclude Include="include\TestLib.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\codesys.c" />
-    <ClCompile Include="src\native\native_io_modules.c" />
-    <ClCompile Include="src\native\native_objects.c" />
+    <ClCompile Include="src\cpp\appDataValue2.cpp" />
+    <ClCompile Include="src\cpp\OctetString.cpp" />
+    <ClCompile Include="src\runner.cpp" />
+    <ClCompile Include="src\starter.c" />
     <ClCompile Include="src\TestLib.c" />
     <ClCompile Include="src\verify_external_dependencies.c" />
   </ItemGroup>
@@ -166,17 +171,6 @@
     <None Include="bin\Makefile" />
     <None Include="rules\libbacnet.in" />
     <None Include="rules\libbacnet.make" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BACnetHandlers\BACnetHandlers.vcxproj">
-      <Project>{9d4c3515-ca91-4c54-93dc-9962a3139a38}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\BACnetObjects\BACnetObjects.vcxproj">
-      <Project>{6a8668e1-f08e-496b-b624-d6c05001806d}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\BACnetStackCore\BACnetStackCore.vcxproj">
-      <Project>{2ad8fb52-086a-44e2-8a44-2f87ffd00839}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

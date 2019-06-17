@@ -13,23 +13,23 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\native">
-      <UniqueIdentifier>{9d85c0c9-d0ef-40ab-8f82-33fb83f96f41}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\ports">
       <UniqueIdentifier>{2b4d01e7-7e28-43ab-aaa0-3d0d5a52592f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\ports\win32">
       <UniqueIdentifier>{73539053-e152-4a41-b84e-d1cebe20fd8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\native">
-      <UniqueIdentifier>{59760497-a36a-4fa6-80c2-fe7aeaa9ec96}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Rules">
       <UniqueIdentifier>{b65163b5-3a1c-43df-b4e4-056cfd327587}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\ports\win32\wide">
       <UniqueIdentifier>{ea0f4992-12a6-4f61-9e60-1b7e6ff828a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\cpp">
+      <UniqueIdentifier>{608b9050-cff6-422c-b337-fa6a504e6b16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cpp">
+      <UniqueIdentifier>{b3c7431d-c47d-4d44-a914-8b02c5e9cc6e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -53,12 +53,6 @@
     </ClInclude>
     <ClInclude Include="include\ports\win32\dal\events\events.h">
       <Filter>Header Files\ports\win32</Filter>
-    </ClInclude>
-    <ClInclude Include="include\native\native_io_modules.h">
-      <Filter>Header Files\native</Filter>
-    </ClInclude>
-    <ClInclude Include="include\native\native_objects.h">
-      <Filter>Header Files\native</Filter>
     </ClInclude>
     <ClInclude Include="include\ports\win32\wide\wide_api.h">
       <Filter>Header Files\ports\win32\wide</Filter>
@@ -84,14 +78,23 @@
     <ClInclude Include="include\codesys.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\starter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\runner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cpp\apduSettings.h">
+      <Filter>Header Files\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cpp\appDataValue2.h">
+      <Filter>Header Files\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cpp\OctetString.h">
+      <Filter>Header Files\cpp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\native\native_io_modules.c">
-      <Filter>Source Files\native</Filter>
-    </ClCompile>
-    <ClCompile Include="src\native\native_objects.c">
-      <Filter>Source Files\native</Filter>
-    </ClCompile>
     <ClCompile Include="src\TestLib.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -100,6 +103,18 @@
     </ClCompile>
     <ClCompile Include="src\verify_external_dependencies.c">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\starter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\runner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\appDataValue2.cpp">
+      <Filter>Source Files\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\OctetString.cpp">
+      <Filter>Source Files\cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

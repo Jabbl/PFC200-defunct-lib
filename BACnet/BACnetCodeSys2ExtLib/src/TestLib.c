@@ -1,6 +1,12 @@
 #include "TestLib.h"
+#include "starter.h"
 
 /* The implemenation templates */
+BOOL F_PROCESS(void)
+{
+	return run_service();
+}
+
 BOOL F_TESTFUNCTION(BOOL XINPUTparam)
 {
 	return !XINPUTparam;
