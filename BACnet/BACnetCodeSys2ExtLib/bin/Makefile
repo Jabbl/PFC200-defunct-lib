@@ -139,7 +139,7 @@ clean:
 
 
 # Linker rule
-$(TARGET_LIB): $(OBJ) $(CXX_OBJS)
+$(TARGET_LIB): $(C_OBJ) $(CXX_OBJS)
 	@echo Linking $(notdir $@)
 	$(SILENCE)$(LINK.o) $^ -o $@
 
