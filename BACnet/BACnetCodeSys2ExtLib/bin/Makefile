@@ -155,7 +155,7 @@ $(TARGET_LIB_TESTLINK): $(TARGET_LIB) $(CODESYS_V2_TESTLINK_SRC)
 
 .cpp.o:
 	@echo Compiling $(basename $<).cpp
-	$(SILENCE)${CPP} -c ${CPPFLAGS} $*.cpp -o $@
+	$(SILENCE)${CPP} -c ${CXXFLAGS} $*.cpp -o $@
 
 .PHONY: all install clean
 
