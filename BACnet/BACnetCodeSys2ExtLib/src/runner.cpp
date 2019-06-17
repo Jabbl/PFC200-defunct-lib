@@ -11,11 +11,10 @@ uint32_t runner(void)
 
 bool cpp_runner(void)
 {
-	AppDataValue2 val0;
-	OctetString val1;
 
-	(void)val0;
-	(void)val1;
+	OctetString* value = new OctetString;
+
+	(void)value;
 
 	return true;
 }
