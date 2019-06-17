@@ -98,8 +98,8 @@ CODESYS_V2_SRC = \
 	
 
 CODESYS_V2_SRC_CXX = \
-	$(BACNET_CODESYS_V2)/OctetString.cpp \
-	$(BACNET_CODESYS_V2)/appDataValue2.cpp \
+	$(BACNET_CODESYS_V2)/cpp/OctetString.cpp \
+	$(BACNET_CODESYS_V2)/cpp/appDataValue2.cpp \
 	$(BACNET_CODESYS_V2)/runner.cpp \
 
 
