@@ -12,6 +12,9 @@
 # Note that all required environment variables are passed via ptxdist.
 #
 
+CXX = $(CXX) -std=gnu++11
+export CXX
+
 #
 #Set SILENCE=@ to keep the makefile quiet.
 #
@@ -23,9 +26,15 @@ export SILENCE
 WARNINGS = -Wall -Wmissing-prototypes -Werror
 export WARNINGS
 
+CXXWARNINGS = -Wall -Wmissing-declarations -pedantic-errors -Wextra -Wshadow -Wno-type-limits -Werror
+export CXXWARNINGS
+
 # Defines for the C- compiler
 DEFINES = -fPIC -funwind-tables -rdynamic
 export DEFINES
+
+CXXDEFINES = -fno-exceptions -fPIC -funwind-tables -rdynamic -fno-rtti
+export CXXDEFINES
 
 # Level of optimization (2 is most used for production)
 OPTIMIZATION = -O2
@@ -34,6 +43,8 @@ export OPTIMIZATION
 # Debugging level (0 = no debug info at all, 2 = standard debug info)
 DEBUGGING = -g2
 export DEBUGGING
+
+STD_CXXFLAGS += $(CXXWARNINGS) $(DEBUGGING) $(OPTIMIZATION) $(CXXDEFINES)
 
 TARGET=libbacnet
 
@@ -71,7 +82,7 @@ CFLAGS 	 += -c $(WARNINGS) $(DEBUGGING) $(OPTIMIZATION) $(DEFINES) -g $(HEADER_P
 CPPFLAGS +=
 
 # CXXFLAGS ^= flags for the cpp-compiler only.
-CXXFLAGS += 
+CXXFLAGS += $(STD_CXXFLAGS)  -g $(HEADER_PATHS)
 
 # LDFALGS ^= flags for the linker.
 LDFLAGS  += $(LIBRARY_REFS) -rdynamic -shared -Wl,-soname,$(TARGET_LIB)
@@ -80,11 +91,17 @@ LDFLAGS  += $(LIBRARY_REFS) -rdynamic -shared -Wl,-soname,$(TARGET_LIB)
 BACNET_CODESYS_V2 = ../src
 
 
-
 CODESYS_V2_SRC = \
 	$(BACNET_CODESYS_V2)/TestLib.c \
 	$(BACNET_CODESYS_V2)/codesys.c \
+	$(BACNET_CODESYS_V2)/starter.c \
 	
+
+CODESYS_V2_SRC_CXX = \
+	$(BACNET_CODESYS_V2)/runner.cpp \
+	$(BACNET_CODESYS_V2)/appDataValue2.cpp \
+	$(BACNET_CODESYS_V2)/OctetString.cpp \
+
 
 CODESYS_V2_TESTLINK_SRC = $(BACNET_CODESYS_V2)/verify_external_dependencies.c
 
@@ -102,7 +119,9 @@ BACNET_PORT = arm7
 #
 # Convert *.c to *.o
 #
-OBJ = $(SRC:.c=.o)
+C_OBJ = $(SRC:.c=.o)
+
+CXX_OBJS = ${CODESYS_V2_SRC_CXX:.cpp=.o}
 
 # make all builds the lib including its test
 all: $(TARGET_LIB_TESTLINK)
@@ -110,13 +129,14 @@ all: $(TARGET_LIB_TESTLINK)
 
 # cleans .o files
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(C_OBJ)
+	$(RM) $(CXX_OBJS)
 	$(RM) $(TARGET_LIB)
 	$(RM) $(TARGET_LIB_TESTLINK)
 
 
 # Linker rule
-$(TARGET_LIB): $(OBJ)
+$(TARGET_LIB): $(OBJ) $(CXX_OBJS)
 	@echo Linking $(notdir $@)
 	$(SILENCE)$(LINK.o) $^ -o $@
 
@@ -129,7 +149,10 @@ $(TARGET_LIB_TESTLINK): $(TARGET_LIB) $(CODESYS_V2_TESTLINK_SRC)
 %.o: %.c
 	$(SILENCE)echo Compiling $(basename $<).c
 	$(SILENCE)$(COMPILE.c) $< -o $@
-
+	
+.cpp.o:
+	@echo Compiling $(basename $<).cpp
+	$(SILENCE)$(CXX) -c $(CXXFLAGS) $*.cpp -o $@
 
 .PHONY: all install clean
 
