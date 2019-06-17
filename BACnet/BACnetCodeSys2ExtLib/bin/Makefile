@@ -12,7 +12,7 @@
 # Note that all required environment variables are passed via ptxdist.
 #
 
-CXX += -std=gnu++11
+CXX += -std=gnu++11 -lstdc++
 export CXX
 
 #
