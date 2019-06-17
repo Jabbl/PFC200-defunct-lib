@@ -138,9 +138,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\codesys.h" />
-    <ClInclude Include="include\cpp\apduSettings.h" />
-    <ClInclude Include="include\cpp\appDataValue2.h" />
-    <ClInclude Include="include\cpp\OctetString.h" />
     <ClInclude Include="include\ports\win32\wide\wide_api.h" />
     <ClInclude Include="include\ports\win32\wide\wide_codesys_types.h" />
     <ClInclude Include="include\ports\win32\wide\wide_events.h" />
@@ -155,15 +152,11 @@
     <ClInclude Include="include\ports\win32\ldkc_kbus_register_communication.h" />
     <ClInclude Include="include\ports\win32\oscommon.h" />
     <ClInclude Include="include\runner.h" />
-    <ClInclude Include="include\starter.h" />
     <ClInclude Include="include\TestLib.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\codesys.c" />
-    <ClCompile Include="src\cpp\appDataValue2.cpp" />
-    <ClCompile Include="src\cpp\OctetString.cpp" />
     <ClCompile Include="src\runner.cpp" />
-    <ClCompile Include="src\starter.c" />
     <ClCompile Include="src\TestLib.c" />
     <ClCompile Include="src\verify_external_dependencies.c" />
   </ItemGroup>

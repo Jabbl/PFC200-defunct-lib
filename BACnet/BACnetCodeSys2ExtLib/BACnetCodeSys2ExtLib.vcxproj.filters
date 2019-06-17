@@ -25,12 +25,6 @@
     <Filter Include="Header Files\ports\win32\wide">
       <UniqueIdentifier>{ea0f4992-12a6-4f61-9e60-1b7e6ff828a8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\cpp">
-      <UniqueIdentifier>{608b9050-cff6-422c-b337-fa6a504e6b16}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\cpp">
-      <UniqueIdentifier>{b3c7431d-c47d-4d44-a914-8b02c5e9cc6e}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ports\win32\dal\adi_application_interface.h">
@@ -78,20 +72,8 @@
     <ClInclude Include="include\codesys.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\starter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\runner.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\cpp\apduSettings.h">
-      <Filter>Header Files\cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="include\cpp\appDataValue2.h">
-      <Filter>Header Files\cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="include\cpp\OctetString.h">
-      <Filter>Header Files\cpp</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -104,17 +86,8 @@
     <ClCompile Include="src\verify_external_dependencies.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\starter.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\runner.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\cpp\appDataValue2.cpp">
-      <Filter>Source Files\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="src\cpp\OctetString.cpp">
-      <Filter>Source Files\cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

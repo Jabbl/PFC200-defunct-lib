@@ -92,14 +92,11 @@ BACNET_CODESYS_V2 = ../src
 
 CODESYS_V2_SRC = \
 	$(BACNET_CODESYS_V2)/TestLib.c \
-	$(BACNET_CODESYS_V2)/codesys.c \
-	$(BACNET_CODESYS_V2)/starter.c \
+	$(BACNET_CODESYS_V2)/codesys.c 
 	
 
 CODESYS_V2_SRC_CXX = \
-	$(BACNET_CODESYS_V2)/cpp/OctetString.cpp \
-	$(BACNET_CODESYS_V2)/cpp/appDataValue2.cpp \
-	$(BACNET_CODESYS_V2)/runner.cpp \
+	$(BACNET_CODESYS_V2)/runner.cpp 
 
 
 CODESYS_V2_TESTLINK_SRC = $(BACNET_CODESYS_V2)/verify_external_dependencies.c

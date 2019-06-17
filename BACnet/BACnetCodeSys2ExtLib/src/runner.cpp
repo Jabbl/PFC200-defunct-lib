@@ -1,20 +1,16 @@
 
 #include "runner.h"
-#include "cpp/appDataValue2.h"
-#include "cpp/OctetString.h"
 
-
-uint32_t runner(void)
+// Bridge between C and C++ code
+void runner(void)
 {
-	return cpp_runner();
+	cpp_runner();
 }
 
-bool cpp_runner(void)
+// Actual C++ runner
+void cpp_runner(void)
 {
-
-	OctetString* value = new OctetString;
+	uint32_t* value = new uint32_t(16); // This valid C++ line seems to be causing problems
 
 	(void)value;
-
-	return true;
 }

@@ -2,7 +2,8 @@
 
 #include <stdint.h>
 
+// Extern c to allow calling from C-code
+extern "C" void runner(void);
 
-extern "C" uint32_t runner(void);
-
-bool cpp_runner(void);
+// Actual C++ runner
+void cpp_runner(void);
