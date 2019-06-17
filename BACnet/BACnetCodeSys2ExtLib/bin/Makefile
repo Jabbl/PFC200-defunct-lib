@@ -12,8 +12,7 @@
 # Note that all required environment variables are passed via ptxdist.
 #
 
-CXX += -std=gnu++11 -lstdc++
-export CXX
+CPP += -std=gnu++11 -lstdc++
 
 #
 #Set SILENCE=@ to keep the makefile quiet.
@@ -155,7 +154,7 @@ $(TARGET_LIB_TESTLINK): $(TARGET_LIB) $(CODESYS_V2_TESTLINK_SRC)
 
 .cpp.o:
 	@echo Compiling $(basename $<).cpp
-	$(SILENCE)${CXX} -c ${CXXFLAGS} $*.cpp -o $@
+	$(SILENCE)${CPP} -c ${CXXFLAGS} $*.cpp -o $@
 
 .PHONY: all install clean
 
