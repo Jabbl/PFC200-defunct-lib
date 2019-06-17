@@ -1,5 +1,8 @@
 #include "TestLib.h"
 
+// Forward declaration of C++ function
+void runner(void);
+
 /* The implemenation templates */
 BOOL F_PROCESS(void)
 {
