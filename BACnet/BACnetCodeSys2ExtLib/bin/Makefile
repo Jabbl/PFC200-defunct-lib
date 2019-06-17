@@ -82,7 +82,7 @@ CFLAGS 	 += -c $(WARNINGS) $(DEBUGGING) $(OPTIMIZATION) $(DEFINES) -g $(HEADER_P
 CPPFLAGS +=
 
 # CXXFLAGS ^= flags for the cpp-compiler only.
-CXXFLAGS += $(STD_CXXFLAGS)  -g $(HEADER_PATHS)
+CXXFLAGS += $(STD_CXXFLAGS) -g $(HEADER_PATHS)
 
 # LDFALGS ^= flags for the linker.
 LDFLAGS  += $(LIBRARY_REFS) -rdynamic -shared -Wl,-soname,$(TARGET_LIB)
@@ -111,6 +111,9 @@ CODESYS_V2_TESTLINK_SRC = $(BACNET_CODESYS_V2)/verify_external_dependencies.c
 #
 SRC = $(CODESYS_V2_SRC)
 
+CXX_SRC = $(CODESYS_V2_SRC_CXX)
+
+
 #
 # External libraries
 #
@@ -121,7 +124,7 @@ BACNET_PORT = arm7
 #
 C_OBJ = $(SRC:.c=.o)
 
-CXX_OBJS = ${CODESYS_V2_SRC_CXX:.cpp=.o}
+CXX_OBJS = $(CXX_SRC:.cpp=.o)
 
 # make all builds the lib including its test
 all: $(TARGET_LIB_TESTLINK)
@@ -146,13 +149,13 @@ $(TARGET_LIB_TESTLINK): $(TARGET_LIB) $(CODESYS_V2_TESTLINK_SRC)
 	$(SILENCE)$(CC) $(CODESYS_V2_TESTLINK_SRC) $(TARGET_LIB) -o $(TARGET_LIB_TESTLINK)
 
 # Compiler rule
-%.o: %.c
-	$(SILENCE)echo Compiling $(basename $<).c
-	$(SILENCE)$(COMPILE.c) $< -o $@
-	
-%.o: %.cpp
+.c.o:
+	@echo Compiling $(basename $<).c
+	$(SILENCE)${CC} -c ${CFLAGS} $*.c -o $@
+
+.cpp.o:
 	@echo Compiling $(basename $<).cpp
-	$(SILENCE)$(CXX) -c $(CXXFLAGS) $*.cpp -o $@
+	$(SILENCE)${CPP} -c ${CPPFLAGS} $*.cpp -o $@
 
 .PHONY: all install clean
 
