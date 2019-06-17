@@ -24,7 +24,7 @@ LIBBACNET_DIR		:= $(BUILDDIR)/$(LIBBACNET)
 LIBBACNET_WWW_DIR	:= src/BACnet/BACnetWBM/www
 LIBBACNET_WWW_SD20_DIR := src/BACnet/SD20
 LIBBACNET_SCRIPTS	:= src/BACnet/BACnetCodeSys2ExtLib/scripts
-LIBBACNET_TARGETIPK := platform-wago-pfcXXX/packages/libbacnet_0.9_arm.ipk
+LIBBACNET_TARGETIPK := platform-wago-pfcXXX/packages/libbacnet_0.9_armhf.ipk
 LIBBACNET_COPY_TO_DIR := src/BACnet/BACnetCodeSys2ExtLib/bin/BACnet-dev-newest.ipk
 LIBBACNET_LICENSE	:= unknown
 
