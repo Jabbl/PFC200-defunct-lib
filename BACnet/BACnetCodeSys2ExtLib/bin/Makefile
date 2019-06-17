@@ -149,9 +149,9 @@ $(TARGET_LIB_TESTLINK): $(TARGET_LIB) $(CODESYS_V2_TESTLINK_SRC)
 	$(SILENCE)$(CC) $(CODESYS_V2_TESTLINK_SRC) $(TARGET_LIB) -o $(TARGET_LIB_TESTLINK)
 
 # Compiler rule
-.c.o:
-	@echo Compiling $(basename $<).c
-	$(SILENCE)${CC} -c ${CFLAGS} $*.c -o $@
+%.o: %.c
+	$(SILENCE)echo Compiling $(basename $<).c
+	$(SILENCE)$(COMPILE.c) $< -o $@
 
 .cpp.o:
 	@echo Compiling $(basename $<).cpp
