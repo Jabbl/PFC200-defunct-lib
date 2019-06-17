@@ -12,7 +12,7 @@
 # Note that all required environment variables are passed via ptxdist.
 #
 
-CPP += -std=gnu++11 -lstdc++
+CXX += -std=gnu++11
 
 #
 #Set SILENCE=@ to keep the makefile quiet.
@@ -145,7 +145,7 @@ $(TARGET_LIB): $(C_OBJ) $(CXX_OBJS)
 # Check for missing references by compiling a seperate file with main() and linking the entire library to it
 $(TARGET_LIB_TESTLINK): $(TARGET_LIB) $(CODESYS_V2_TESTLINK_SRC)
 	@echo Checking for missing references
-	$(SILENCE)$(CC) $(CODESYS_V2_TESTLINK_SRC) $(TARGET_LIB) -o $(TARGET_LIB_TESTLINK)
+	$(SILENCE)$(CXX) $(CODESYS_V2_TESTLINK_SRC) $(TARGET_LIB) -o $(TARGET_LIB_TESTLINK)
 
 # Compiler rule
 %.o: %.c
@@ -154,7 +154,7 @@ $(TARGET_LIB_TESTLINK): $(TARGET_LIB) $(CODESYS_V2_TESTLINK_SRC)
 
 .cpp.o:
 	@echo Compiling $(basename $<).cpp
-	$(SILENCE)${CPP} -c ${CXXFLAGS} $*.cpp -o $@
+	$(SILENCE)${CXX} -c ${CXXFLAGS} $*.cpp -o $@
 
 .PHONY: all install clean
 
