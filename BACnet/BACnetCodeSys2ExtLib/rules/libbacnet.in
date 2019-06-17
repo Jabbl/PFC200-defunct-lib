@@ -1,0 +1,7 @@
+## SECTION=wago_specific_demo
+
+config LIBBACNET
+	tristate
+	prompt "libbacnet"
+	help
+	  FIXME

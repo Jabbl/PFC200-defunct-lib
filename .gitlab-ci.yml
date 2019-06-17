@@ -1,0 +1,38 @@
+# Comment  
+variables:
+  VERSION_MAJOR: 1
+  VERSION_MIDDLE: 0
+  VERSION_MINOR: 0
+  VERSION_PATCH: 0
+  VERSION_BUILD: "$CI_PIPELINE_ID"
+  PACKAGE_NAME: "CoDeSys-test"
+  
+  # UI parameters:
+  #QUIET:                 <whether the output should be quiet or not (1 for quiet, 0 for verbose)>
+  #DDOCKER_REGISTRY_HOST: <host to get images from>
+  
+  #  after_script:
+  #  - docker system prune -a -f
+  
+stages:
+  - build_bacnet
+
+build_bacnet:
+  stage: build_bacnet
+  script:
+    - printf -v PATCH_PAD "%03d" $VERSION_PATCH
+    - export VERSION_FULLTAG="$PACKAGE_NAME-$VERSION_MAJOR.$VERSION_MIDDLE.$VERSION_MINOR.$PATCH_PAD-$VERSION_BUILD.ipk"
+    - "echo Compiling $VERSION_FULLTAG"
+    - mkdir publish
+    - chmod -R 777 buildscripts
+    - SCRIPT=$(readlink -f "$0")
+    - SCRIPTPATH=$(dirname "$SCRIPT")
+    - docker run --name test-build -v "$SCRIPTPATH/buildscripts:/tmp/buildscripts" -v "$SCRIPTPATH/BACnet:/media/BACnet" -v "$SCRIPTPATH/publish:/publish" $DOCKER_REGISTRY_HOST/wago-pfc200-compiler:12.1 /tmp/buildscripts/build.sh --quiet $QUIET --filename $VERSION_FULLTAG --output /publish
+  after_script:
+    - docker rm test-build
+  artifacts:
+    paths:
+      - publish/
+    expire_in: 1 day
+  tags:
+    - linux

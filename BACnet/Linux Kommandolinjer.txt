@@ -1,0 +1,55 @@
+Kompilert bibliotek havner her:			/home/powertech/Wago/ptxproj-2.6.20/platform-wago-pfcXXX/packages/libbacnet_0.9_arm.ipk
+
+
+Kommandoer for å kompilere BACnet .a fil:	make
+For å slette .lib fil:				make clean
+Kjøres fra:					/mnt/hgfs/bacnet-stack
+
+
+Kommandoer for å kompilere BACnet .ipk fil:	ptxdist go libbacnet
+For å slette .ipk fil:				ptxdist clean libbacnet
+Kjøres fra:					~/Wago/ptxproj-2.6.20
+
+
+
+
+
+Go to /home/Wago/ptxproj-2.6.20/rules:
+  Make a symlink for libbacnet.in:	ln -s /mnt/hgfs/BACnet/BACnetCodeSys2ExtLib/rules/libbacnet.in libbacnet.in
+  Make a symlink for libbacnet.make:	ln -s /mnt/hgfs/BACnet/BACnetCodeSys2ExtLib/rules/libbacnet.make libbacnet.make
+
+
+
+
+** Kræsj- debugging **
+  1. Hente ut crashdump.log fra SD- kort
+
+  2. Kjør kommando fra ptxproj- mappe for å finne relativ funksjonsadresse:
+     nm -g src/BACnet/BACnetCodeSys2ExtLib/bin/libbacnet.so | grep 'server_process'
+
+  3. Ta relativ adresse innenfor funksjon (+0xXXX) og legg til adressen fra "nm" kommando
+
+  4. Kjør kommando fra ptxproj- mappe for å finne linjenr basert på adressen du kalkulerte i steg 3:
+     addr2line -i -f -e src/BACnet/BACnetCodeSys2ExtLib/bin/libbacnet.so -a 0x24d64
+
+
+
+
+** Opprette sertifikat **
+
+  1. Generere ny tilfeldig private key/crt- fil med 4096 bits kryptering:
+     openssl req -x509 -sha256 -nodes -newkey rsa:4096 -keyout privateKey.key -out certificate.crt
+
+  2. Generere public key basert på private key: (for bruk i BACnet driver på PLS for å sjekke at lisence.xml er signert av PowerTech)
+     openssl rsa -in private.key -pubout > public.pub
+
+  3. Generere PFX- sertifikat som kan installeres på Windows for å signere lisence.xml filer:
+     openssl pkcs12 -inkey private.key -in certificate.crt -export -out certificate.pfx
+
+  4. Installering av sertifikat:
+     a) Dobbeltklikk .pfx fil
+     b) Velg Store Location: Local Machine
+     c) Skriv inn privat passord for sertifikatet
+     d) Velg "Trusted Root Certification Authorities" som Store Location
+     e) Fullfør installasjon
+     f) Gå inn på "Computer Certificates", finn sertifikatet og sett friently name til "BACnet"

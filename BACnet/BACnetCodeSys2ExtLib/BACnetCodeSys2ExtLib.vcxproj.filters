@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\native">
+      <UniqueIdentifier>{9d85c0c9-d0ef-40ab-8f82-33fb83f96f41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ports">
+      <UniqueIdentifier>{2b4d01e7-7e28-43ab-aaa0-3d0d5a52592f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ports\win32">
+      <UniqueIdentifier>{73539053-e152-4a41-b84e-d1cebe20fd8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\native">
+      <UniqueIdentifier>{59760497-a36a-4fa6-80c2-fe7aeaa9ec96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rules">
+      <UniqueIdentifier>{b65163b5-3a1c-43df-b4e4-056cfd327587}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ports\win32\wide">
+      <UniqueIdentifier>{ea0f4992-12a6-4f61-9e60-1b7e6ff828a8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\ports\win32\dal\adi_application_interface.h">
+      <Filter>Header Files\ports\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ports\win32\dal\dal_limits.h">
+      <Filter>Header Files\ports\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ports\win32\dal\dal_types.h">
+      <Filter>Header Files\ports\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ports\win32\ldkc_kbus_information.h">
+      <Filter>Header Files\ports\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ports\win32\ldkc_kbus_register_communication.h">
+      <Filter>Header Files\ports\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ports\win32\oscommon.h">
+      <Filter>Header Files\ports\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ports\win32\dal\events\events.h">
+      <Filter>Header Files\ports\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="include\native\native_io_modules.h">
+      <Filter>Header Files\native</Filter>
+    </ClInclude>
+    <ClInclude Include="include\native\native_objects.h">
+      <Filter>Header Files\native</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ports\win32\wide\wide_api.h">
+      <Filter>Header Files\ports\win32\wide</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ports\win32\wide\wide_codesys_types.h">
+      <Filter>Header Files\ports\win32\wide</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ports\win32\wide\wide_events.h">
+      <Filter>Header Files\ports\win32\wide</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ports\win32\wide\wide_hooks.h">
+      <Filter>Header Files\ports\win32\wide</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ports\win32\wide\wide_rts_exceptions.h">
+      <Filter>Header Files\ports\win32\wide</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ports\win32\wide\wide_types.h">
+      <Filter>Header Files\ports\win32\wide</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TestLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\codesys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\native\native_io_modules.c">
+      <Filter>Source Files\native</Filter>
+    </ClCompile>
+    <ClCompile Include="src\native\native_objects.c">
+      <Filter>Source Files\native</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestLib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\codesys.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\verify_external_dependencies.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Makefile" />
+    <None Include="rules\libbacnet.in">
+      <Filter>Rules</Filter>
+    </None>
+    <None Include="rules\libbacnet.make">
+      <Filter>Rules</Filter>
+    </None>
+  </ItemGroup>
+</Project>
