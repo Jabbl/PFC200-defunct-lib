@@ -12,7 +12,7 @@
 # Note that all required environment variables are passed via ptxdist.
 #
 
-CXX = $(CXX) -std=gnu++11
+CXX += -std=gnu++11
 export CXX
 
 #
