@@ -43,8 +43,6 @@ export OPTIMIZATION
 DEBUGGING = -g2
 export DEBUGGING
 
-STD_CXXFLAGS += $(CXXWARNINGS) $(DEBUGGING) $(OPTIMIZATION) $(CXXDEFINES)
-
 TARGET=libbacnet
 
 # Name of the library to build.
@@ -75,13 +73,13 @@ LIBRARY_REFS += -lcurl
 # the CFLAGS and LDFLAGS are passed via ptxdist, aswell as CC,CXX,LD,AR etc.
 
 # CFLAGS ^= flags for the c-compiler only.
-CFLAGS 	 += -c $(WARNINGS) $(DEBUGGING) $(OPTIMIZATION) $(DEFINES) -g $(HEADER_PATHS) -include ../../settings.h
+CFLAGS 	 += -c $(WARNINGS) $(DEBUGGING) $(OPTIMIZATION) $(DEFINES) -g $(HEADER_PATHS)
 
 # CPPFLAGS ^= flags for both the c- and cpp-compiler.
 CPPFLAGS +=
 
 # CXXFLAGS ^= flags for the cpp-compiler only.
-CXXFLAGS += $(STD_CXXFLAGS) -g $(HEADER_PATHS)
+CXXFLAGS += $(CXXWARNINGS) $(DEBUGGING) $(OPTIMIZATION) $(CXXDEFINES) -g $(HEADER_PATHS)
 
 # LDFALGS ^= flags for the linker.
 LDFLAGS  += $(LIBRARY_REFS) -rdynamic -shared -Wl,-soname,$(TARGET_LIB)
