@@ -30,4 +30,4 @@ __pycache__
 .*.swp 
 .DS_Store 
 [Tt]humbs.db
-.DFR
+*.DFR
